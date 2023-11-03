@@ -5,24 +5,24 @@ import DeleteModal from "./deleteModal/deleteModal";
 import Styles from "./styles.module.css";
 import { idGeneretor } from "../helpers/idGeneretor";
 import Button from "react-bootstrap/Button";
-import { createTask } from "../service/requests";
+import {
+  createTaskRequest,
+  getTaskRequest,
+  deleteTaskRequest,
+} from "../service/requests";
 // import { ContextProvider } from "../App";
 
 const ToDo = () => {
   // const { loading } = useContext(ContextProvider);
   // console.log(num, "num");
 
-  let [tasks, setTasks] = useState([
-    { title: "Task1", description: "description", date:"22/12/2023", id: idGeneretor() },
-    { title: "Task2", description: "description", date:"22/12/2023", id: idGeneretor() },
-    { title: "Task3", description: "description", date:"22/12/2023", id: idGeneretor() },
-  ]);
+  let [tasks, setTasks] = useState([]);
   let [inputValue, setInputValue] = useState({});
   let [checkedTasks, setCheckedTasks] = useState(new Set());
   let [isOpenAddModal, setIsOpenAddModal] = useState(false);
   let [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   let [editTask, setEditTask] = useState({});
-
+  console.log(checkedTasks, "checkedTasks==========");
   const inputOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -37,10 +37,10 @@ const ToDo = () => {
     }
   };
 
-  const submit = (editTask) => {
+  const submit = async (editTask) => {
     if (editTask) {
       tasks.forEach((task) => {
-        if (task.id === editTask.id) {
+        if (task._id === editTask._id) {
           task.title = editTask.title;
           task.description = editTask.description;
         }
@@ -49,50 +49,53 @@ const ToDo = () => {
       setIsOpenAddModal(false);
       setEditTask({});
     } else {
-      if (Object.keys(inputValue).length !== 2) return;
+      if (Object.keys(inputValue).length !== 3) return;
       const obj = {};
       Object.keys(inputValue).forEach((name) => {
         console.log(inputValue[name]);
         obj[name] = inputValue[name];
-        obj.id = idGeneretor();
       });
 
       // const isTitleDescription = Object.keys(obj).find(   Eroi hamar
       //   (i) => i === "title" || i === "description"
       // );
       if (!obj.title && !obj.description) return;
-      tasks.push(obj);
-      createTask(obj);
+      const newTask = await createTaskRequest(obj);
       setInputValue({});
+      tasks.push(newTask);
       setTasks(tasks);
       setIsOpenAddModal(false);
     }
   };
 
-  const handleDeleteTask = (id) => {
+  const handleDeleteTask = (_id) => {
     // let tasks = this.state.tasks;
     // tasks = tasks.filter((task) => task.id !== id);
     const checkedTasks = new Set();
-    checkedTasks.add(id);
+    checkedTasks.add(_id);
     setCheckedTasks(checkedTasks);
     setIsOpenDeleteModal(true);
   };
 
-  const handleOnChange = (id) => {
-    if (checkedTasks.has(id)) {
-      checkedTasks.delete(id);
+  const handleOnChange = (_id) => {
+    if (checkedTasks.has(_id)) {
+      checkedTasks.delete(_id);
     } else {
-      checkedTasks.add(id);
+      checkedTasks.add(_id);
     }
     setCheckedTasks(new Set(checkedTasks));
   };
   const handleDeleteAllTasks = () => {
+    console.log(checkedTasks, "checkedTasks");
     // tasks = tasks.filter((task) => task.id !== checkedTasks.has(task.id));
-    checkedTasks = Array.from(checkedTasks);
-    tasks = checkedTasks.reduce(
-      (acc, checkedTask) => acc.filter((task) => task.id !== checkedTask),
+    // checkedTasks = Array.from(checkedTasks);
+    const arr = Array.from(checkedTasks);
+    console.log(arr, "arr");
+    tasks = arr.reduce(
+      (acc, checkedTask) => acc.filter((task) => task._id !== checkedTask),
       tasks
     );
+    deleteTaskRequest(arr);
     setTasks(tasks);
     setCheckedTasks(new Set());
     setIsOpenDeleteModal(false);
@@ -102,7 +105,7 @@ const ToDo = () => {
     if (checkedTasks.size === tasks.length) {
       checkedTasks.clear();
     } else {
-      checkedTasks = tasks.map((item) => item.id);
+      checkedTasks = tasks.map((item) => item._id);
     }
     setCheckedTasks(new Set(checkedTasks));
   };
@@ -147,16 +150,11 @@ const ToDo = () => {
   //     .then((data) => {
   //       console.log(data, "data");
   //     });
-  // });
+  // },[]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3001")
-  //     .then((res) => {
-  //       console.log(res, "res");
-  //       return res.text();
-  //     })
-  //     .then((data) => console.log(data, "data"));
-  // }, []);
+  useEffect(() => {
+    getTaskRequest(setTasks);
+  }, []);
 
   return (
     <div>

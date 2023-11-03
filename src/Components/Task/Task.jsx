@@ -1,7 +1,7 @@
 import Styles from "./styles.module.css";
 import deleteIcon from "../../icons/delete.svg";
 import editIcon from "../../icons/edit.svg";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Task = (props) => {
   const {
@@ -16,24 +16,24 @@ const Task = (props) => {
       <div>
         <input
           type="checkbox"
-          onChange={() => handleOnChange(task.id)}
-          checked={checkedTasks.has(task.id)}
+          onChange={() => handleOnChange(task._id)}
+          checked={checkedTasks.has(task._id)}
         />
-        <Link to={`/singleTask/${task.id}`} state={task}>
+        <Link to={`/singleTask/${task._id}`} state={task}>
           <p>Title: {task.title}</p>
         </Link>
         <p>Description: {task.description}</p>
-        <p>Date: {task.date}</p>
+        <p>Date: {task.created_at}</p>
       </div>
       <div className={Styles.iconsContainer}>
         <button
-          onClick={() => handleDeleteTask(task.id)}
-          disabled={checkedTasks.has(task.id)}
+          onClick={() => handleDeleteTask(task._id)}
+          disabled={checkedTasks.has(task._id)}
         >
           <img src={deleteIcon} alt="delete" />
         </button>
         <button
-          disabled={checkedTasks.has(task.id)}
+          disabled={checkedTasks.has(task._id)}
           onClick={() => handleEditTask(task)}
         >
           <img src={editIcon} alt="edit" />

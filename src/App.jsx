@@ -1,8 +1,9 @@
 import React, { createContext, useState } from "react";
 import ToDo from "./Components/ToDo";
 import SingleTask from "./Components/singleTask/SingleTask";
+import Navbar from "./Components/Navbar/Navbar";
 // import A from "./functionalComponents/A";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 export const ContextProvider = createContext();
 
 const App = () => {
@@ -14,18 +15,29 @@ const App = () => {
     loadin,
     setLoading,
   };
-
+  const navigate = useNavigate();
   const containerStyles = { width: "90%", margin: "auto" };
   return (
-    <div style={containerStyles}>
-      <ContextProvider.Provider value={contextValue}>
-        <Routes>
-          <Route path="/" element={<ToDo />} />
-          <Route path="/singleTask/:id" element={<SingleTask />} />
-        </Routes>
-      </ContextProvider.Provider>
-      {/* <A /> */}
-    </div>
+    <>
+      <Navbar />
+      <div style={containerStyles}>
+        <ContextProvider.Provider value={contextValue}>
+          <Routes>
+            <Route path="/" element={<ToDo />} />
+            <Route path="/singleTask/:id" element={<SingleTask />} />
+            <Route
+              path="/contact"
+              element={
+                <button onClick={() => navigate("/", { state: { a: 5 } })}>
+                  Contact us
+                </button>
+              }
+            />
+          </Routes>
+        </ContextProvider.Provider>
+        {/* <A /> */}
+      </div>
+    </>
   );
 };
 

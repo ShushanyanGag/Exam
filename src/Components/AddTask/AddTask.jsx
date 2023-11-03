@@ -13,9 +13,10 @@ const AddTask = ({
   resetEditTask,
 }) => {
   let [editTask, setEditTask] = useState({
+    date: editableTask.date,
     title: editableTask.title,
     description: editableTask.description,
-    id: editableTask.id,
+    _id: editableTask._id,
   });
 
   const editInputChange = (e) => {
@@ -25,7 +26,6 @@ const AddTask = ({
     });
   };
 
- 
   const isAddState = Object.keys(editableTask).length === 0;
   return (
     <Modal
@@ -58,6 +58,14 @@ const AddTask = ({
               onChange={isAddState ? inputOnChange : editInputChange}
             />
           </Form.Group>
+          {isAddState && (
+            <input
+              value={editTask.date}
+              type="date"
+              name="date"
+              onChange={inputOnChange}
+            />
+          )}
         </Form>
       </Modal.Body>
       <Modal.Footer>
