@@ -2,6 +2,7 @@ import Styles from "./styles.module.css";
 import deleteIcon from "../../icons/delete.svg";
 import editIcon from "../../icons/edit.svg";
 import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
 
 const Task = (props) => {
   const {
@@ -10,6 +11,8 @@ const Task = (props) => {
     handleOnChange,
     checkedTasks,
     handleEditTask,
+    setTasks,
+    tasks,
   } = props;
   return (
     <div className={Styles.task}>
@@ -39,6 +42,34 @@ const Task = (props) => {
           <img src={editIcon} alt="edit" />
         </button>
       </div>
+      <Form>
+        <Form.Check // prettier-ignore
+          checked={task.status === "done"}
+          type="switch"
+          id="custom-switch"
+          label="Check this switch"
+          onChange={async (e) => {
+            const response = await fetch(
+              `http://localhost:3001/task/${task._id}`,
+              {
+                method: "PUT",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                  status: e.target.checked ? "done" : "active",
+                }),
+              }
+            );
+            const data = await response.json();
+            const newTasks = tasks.map((i) => {
+              //================== homework
+            });
+            console.log(newTasks, "newTasks");
+            // setTasks(newTasks);
+          }}
+        />
+      </Form>
     </div>
   );
 };

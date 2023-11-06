@@ -12,7 +12,7 @@ import {
 } from "../service/requests";
 // import { ContextProvider } from "../App";
 
-const ToDo = () => {
+const ToDo = ({ addNotification }) => {
   // const { loading } = useContext(ContextProvider);
   // console.log(num, "num");
 
@@ -22,7 +22,6 @@ const ToDo = () => {
   let [isOpenAddModal, setIsOpenAddModal] = useState(false);
   let [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   let [editTask, setEditTask] = useState({});
-  console.log(checkedTasks, "checkedTasks==========");
   const inputOnChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -60,7 +59,8 @@ const ToDo = () => {
       //   (i) => i === "title" || i === "description"
       // );
       if (!obj.title && !obj.description) return;
-      const newTask = await createTaskRequest(obj);
+      const newTask = await createTaskRequest(obj, addNotification);
+      if (!newTask) return;
       setInputValue({});
       tasks.push(newTask);
       setTasks(tasks);
@@ -188,6 +188,8 @@ const ToDo = () => {
         {tasks.map((item, index) => {
           return (
             <Task
+            tasks={tasks}
+            setTasks={setTasks}
               key={index}
               task={item}
               handleDeleteTask={handleDeleteTask}
