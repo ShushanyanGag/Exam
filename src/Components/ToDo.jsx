@@ -10,11 +10,7 @@ import {
   getTaskRequest,
   deleteTaskRequest,
 } from "../service/requests";
-// import { ContextProvider } from "../App";
-
 const ToDo = ({ addNotification }) => {
-  // const { loading } = useContext(ContextProvider);
-  // console.log(num, "num");
 
   let [tasks, setTasks] = useState([]);
   let [inputValue, setInputValue] = useState({});
@@ -55,9 +51,6 @@ const ToDo = ({ addNotification }) => {
         obj[name] = inputValue[name];
       });
 
-      // const isTitleDescription = Object.keys(obj).find(   Eroi hamar
-      //   (i) => i === "title" || i === "description"
-      // );
       if (!obj.title && !obj.description) return;
       const newTask = await createTaskRequest(obj, addNotification);
       if (!newTask) return;
@@ -69,8 +62,6 @@ const ToDo = ({ addNotification }) => {
   };
 
   const handleDeleteTask = (_id) => {
-    // let tasks = this.state.tasks;
-    // tasks = tasks.filter((task) => task.id !== id);
     const checkedTasks = new Set();
     checkedTasks.add(_id);
     setCheckedTasks(checkedTasks);
@@ -86,9 +77,7 @@ const ToDo = ({ addNotification }) => {
     setCheckedTasks(new Set(checkedTasks));
   };
   const handleDeleteAllTasks = () => {
-    console.log(checkedTasks, "checkedTasks");
-    // tasks = tasks.filter((task) => task.id !== checkedTasks.has(task.id));
-    // checkedTasks = Array.from(checkedTasks);
+
     const arr = Array.from(checkedTasks);
     console.log(arr, "arr");
     tasks = arr.reduce(
@@ -136,34 +125,18 @@ const ToDo = ({ addNotification }) => {
     setEditTask({});
   };
 
-  // useEffect(() => {
-  //   const post = { title: "hello", userId: 1, body: "body" };
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data, "userData"));
-  //   fetch("https://jsonplaceholder.typicode.com/posts", {
-  //     method: "POST",
-  //     "content-type": "application-json",
-  //     body: JSON.stringify(post),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data, "data");
-  //     });
-  // },[]);
-
   useEffect(() => {
     getTaskRequest(setTasks);
   }, []);
 
   return (
     <div>
-      <h1 style={{ textAlign: "center", color: "green", marginBottom: "50px" }}>
+      {/* <h1 style={{ textAlign: "center", color: "green", marginBottom: "50px" }}>
         ToDo Project
-      </h1>
+      </h1> */}
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Button onClick={() => handleOpenModal("isOpenAddModal")}>
-          Add Task
+          Add Your Note
         </Button>
       </div>
       {isOpenAddModal && (
@@ -199,7 +172,7 @@ const ToDo = ({ addNotification }) => {
             />
           );
         })}
-        {tasks.length === 0 && <p>There are not tasks!</p>}
+        {tasks.length === 0 && <p>There are no notes yet.</p>}
       </div>
       {tasks.length === 0 || (
         <div className={Styles.deleteAll}>
@@ -207,12 +180,11 @@ const ToDo = ({ addNotification }) => {
             onClick={() => handleOpenModal("isOpenDeleteModal")}
             disabled={checkedTasks.size === 0}
           >
-            Delete Cheked tasks
+            Delete Notes
           </button>
           <button onClick={handleCheckAllTasks} style={{ background: "green" }}>
             {checkedTasks.size === tasks.length ? "Uncheck All" : "Check All"}
           </button>
-          {/* <button onClick={() => setNum(num + 1)}>for context</button> */}
         </div>
       )}
     </div>

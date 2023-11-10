@@ -1,0 +1,33 @@
+.right_aligned {
+    justify-content: flex-end;
+}
+.left {
+    width: 15%;
+}
+img {
+    margin-left: 15px;
+    width: auto;
+    height: 50px;
+    z-index: 2;
+}
+/* .coloring {
+    color: ;
+} */
+
+.dropdown {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+    color: rgb(185, 185, 185);
+}
+
+.dropdown :hover {
+    color: rgb(255, 255, 255);
+    transition: 0.8s;
+}
+
+.space {
+    justify-content: space-around;
+    gap: 15px; 
+    margin-right: 15px;
+}
+

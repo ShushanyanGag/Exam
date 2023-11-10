@@ -42,34 +42,7 @@ const Task = (props) => {
           <img src={editIcon} alt="edit" />
         </button>
       </div>
-      <Form>
-        <Form.Check // prettier-ignore
-          checked={task.status === "done"}
-          type="switch"
-          id="custom-switch"
-          label="Check this switch"
-          onChange={async (e) => {
-            const response = await fetch(
-              `http://localhost:3001/task/${task._id}`,
-              {
-                method: "PUT",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify({
-                  status: e.target.checked ? "done" : "active",
-                }),
-              }
-            );
-            const data = await response.json();
-            const newTasks = tasks.map((i) => {
-              //================== homework
-            });
-            console.log(newTasks, "newTasks");
-            // setTasks(newTasks);
-          }}
-        />
-      </Form>
+      
     </div>
   );
 };

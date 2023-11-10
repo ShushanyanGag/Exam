@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import ToDo from "./Components/ToDo";
 import SingleTask from "./Components/singleTask/SingleTask";
 import Navbar from "./Components/Navbar/Navbar";
-// import A from "./functionalComponents/A";
 import { ToastContainer, toast, TypeOptions } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -57,7 +56,6 @@ const App = () => {
             theme="colored"
           />
         </ContextProvider.Provider>
-        {/* <A /> */}
       </div>
     </>
   );

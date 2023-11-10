@@ -34,7 +34,7 @@ const AddTask = ({
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton>
-        <Modal.Title>{isAddState ? "Add Task" : "Edit Task"}</Modal.Title>
+        <Modal.Title>{isAddState ? "Add Note" : "Edit Note"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
