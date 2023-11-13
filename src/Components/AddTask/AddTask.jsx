@@ -76,7 +76,7 @@ const AddTask = ({
           variant="primary"
           onClick={() => submit(!isAddState ? editTask : undefined)}
         >
-          {isAddState ? "Add Task" : "Edit Task"}
+          {isAddState ? "Add Note" : "Edit Note"}
         </Button>
       </Modal.Footer>
     </Modal>

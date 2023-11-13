@@ -1,8 +1,14 @@
+.Nav {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
 .right_aligned {
     justify-content: flex-end;
 }
 .left {
     width: 15%;
+    border: none;
 }
 img {
     margin-left: 15px;
@@ -13,17 +19,6 @@ img {
 /* .coloring {
     color: ;
 } */
-
-.dropdown {
-    --bs-bg-opacity: 1;
-    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
-    color: rgb(185, 185, 185);
-}
-
-.dropdown :hover {
-    color: rgb(255, 255, 255);
-    transition: 0.8s;
-}
 
 .space {
     justify-content: space-around;

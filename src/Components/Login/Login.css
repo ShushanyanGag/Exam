@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-width: 480px;
+    background-color: black;
+}
+
+.left-logo img {
+    width: 250px;
+    height: auto;
+}
+
+.right {
+    min-width: 430px;
+    padding: 40px 60px;
+    box-sizing: border-box;
+}
+
+.right p {
+    font-size: 17.5px;
+}
+
+.right h3 {
+    font-weight: 500;
+    font-size: 35px;
+}
+
+.input-email {
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid #212529;
+    margin-bottom: 20px;
+}
+
+.input-password {
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid #212529;
+    margin-bottom: 20px;
+    
+}
+
+.checkbox-text-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.checkbox-text-forgot a {
+    color: black;
+}
+
+.login-button {
+    width: 400px;
+    height: 40px;
+    background-color: #000000;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.register-button {
+    width: 400px;
+    height: 40px;
+    background-color: #9c7945;
+    color: white;
+    border-color: #9c7945;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sign-in-button {
+    width: 400px;
+    height: 40px;
+    background-color: rgb(238, 238, 238);
+    color: black;
+    border-color: #212529;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 75px;
+
+}

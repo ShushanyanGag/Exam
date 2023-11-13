@@ -15,13 +15,13 @@ function Deletemodal({
   return (
     <Modal show={isOpenDeleteModal} onHide={() => onHide("isOpenDeleteModal")}>
       <Modal.Header closeButton>
-        <Modal.Title>Delete tasks</Modal.Title>
+        <Modal.Title>Delete notes</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         Are you sure to delete{" "}
         {checkedTasks.size === 1
           ? ` ${newTask.title} ?`
-          : ` ${checkedTasks.size} tasks ?`}
+          : ` ${checkedTasks.size} notes ?`}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => onHide("isOpenDeleteModal")}>

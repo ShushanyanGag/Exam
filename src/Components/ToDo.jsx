@@ -3,7 +3,7 @@ import AddTask from "./AddTask/AddTask";
 import Task from "./Task/Task";
 import DeleteModal from "./deleteModal/deleteModal";
 import Styles from "./styles.module.css";
-import { idGeneretor } from "../helpers/idGeneretor";
+import background from "../icons/bg-main-page.png";
 import Button from "react-bootstrap/Button";
 import {
   createTaskRequest,
@@ -131,11 +131,8 @@ const ToDo = ({ addNotification }) => {
 
   return (
     <div>
-      {/* <h1 style={{ textAlign: "center", color: "green", marginBottom: "50px" }}>
-        ToDo Project
-      </h1> */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={() => handleOpenModal("isOpenAddModal")}>
+      <div style={{ display: "flex", justifyContent: "center", paddingTop: "100px" }}>
+        <Button style={{backgroundColor: "#212529", color: "white", border: "none"}} onClick={() => handleOpenModal("isOpenAddModal")}>
           Add Your Note
         </Button>
       </div>

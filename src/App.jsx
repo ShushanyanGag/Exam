@@ -5,6 +5,10 @@ import Navbar from "./Components/Navbar/Navbar";
 import { ToastContainer, toast, TypeOptions } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import Login from "./Components/Login/Login";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import ContactUs from "./Components/ContactUs/ContactUs";
+
 export const ContextProvider = createContext();
 
 const App = () => {
@@ -22,7 +26,7 @@ const App = () => {
     addNotification,
   };
   const navigate = useNavigate();
-  const containerStyles = { width: "90%", margin: "auto" };
+  const containerStyles = { width: "100%", margin: "0" };
   return (
     <>
       <Navbar />
@@ -34,14 +38,20 @@ const App = () => {
               element={<ToDo addNotification={addNotification} />}
             />
             <Route path="/singleTask/:id" element={<SingleTask />} />
-            <Route
+            <Route onClick={() => navigate("/", { state: { a: 5 } })}/>
+            {/* <Route
               path="/contact"
               element={
                 <button onClick={() => navigate("/", { state: { a: 5 } })}>
                   Contact us
                 </button>
               }
-            />
+            /> */}
+            <Route path="/" Component={ ToDo }/>
+            <Route path="/" Component={ ToDo }/>
+            <Route path="/login" Component={ Login }/>
+            <Route path="/about" Component={ AboutUs }/>
+            <Route path="/contact" Component={ ContactUs }/>
           </Routes>
           <ToastContainer
             position="bottom-right"
