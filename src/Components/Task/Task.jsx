@@ -28,7 +28,7 @@ const Task = (props) => {
           <p>Title: {task.title}</p>
         </Link>
         <p>Description: {task.description}</p>
-        <p>Date: {task.created_at}</p>
+        <p>Date: {task.created_at.split("T", 1)[0]}</p>
       </div>
       <div className={Styles.iconsContainer}>
         <button

@@ -13,7 +13,6 @@ import {
 
 import background from "../icons/bg-laminat.jpeg";
 const ToDo = ({ addNotification }) => {
-
   let [tasks, setTasks] = useState([]);
   let [inputValue, setInputValue] = useState({});
   let [checkedTasks, setCheckedTasks] = useState(new Set());

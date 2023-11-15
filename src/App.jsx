@@ -35,14 +35,10 @@ const App = () => {
         <ContextProvider.Provider value={contextValue}>
           <Routes>
             <Route path="/" Component={ FirstPage }/>
-            <Route
-              path="/"
-              element={<ToDo addNotification={addNotification} />}
-            />
             <Route path="/singleTask/:id" element={<SingleTask />} />
             <Route onClick={() => navigate("/", { state: { a: 5 } })}/>
 
-            <Route path="/notes" Component={ ToDo }/> 
+            <Route path="/notes" element={ <ToDo addNotification={addNotification}/>}/> 
             <Route path="/login" Component={ Login }/>
             <Route path="/about" Component={ AboutUs }/>
             <Route path="/contact" Component={ ContactUs }/>
