@@ -12,9 +12,9 @@ const Login = () => {
                 <h3>Login</h3>
                 <p style={{fontSize: "18px", marginBottom: "40px"}}>Welcome Back! Please enter your details.</p>
                 <form action="">
-                    <input type="email" placeholder="Email" className="input-email"/>
+                    <input type="email" placeholder="Email" className="input-email" required/>
                     <br />
-                    <input type="password" placeholder="Password" className="input-password"/>
+                    <input type="password" placeholder="Password" className="input-password" required/>
                     <br />
                     <div className="checkbox-text-forgot">
                         <div className="checkbox-text">
@@ -26,10 +26,10 @@ const Login = () => {
                     <input type="submit" value="Log in" className="login-button"/>
                     <br />
                     <input type="submit" value="Register" className="register-button"/>
-                    <p style={{textAlign: "center"}}>or</p>
+                    <p style={{textAlign: "center", color: "white"}}>or</p>
                     <input type="submit" value="Sign In With Google" className="sign-in-button"/>
                 </form>
-                <p style={{textAlign: "center", fontSize: "17px"}}>Dont have an acoount? <span><a href="#" style={{color: "black"}}>Sign up for free</a></span></p>
+                <p style={{textAlign: "center", fontSize: "17px", color: "whitesmoke"}}>Dont have an acoount? <span><a href="#" style={{color: "white"}}>Sign up for free</a></span></p>
             </div>
         </div>
     )

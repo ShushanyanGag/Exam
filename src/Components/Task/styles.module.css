@@ -3,7 +3,8 @@
   flex-direction: column;
   width: 250px;
   height: 311px;
-  background-color: rgb(190, 140, 237);
+  background-color: #212529;
+  border-radius: 5px;
 }
 
 .task p {

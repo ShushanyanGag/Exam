@@ -54,17 +54,17 @@ const AboutUs = () => {
 
                                 <ul className="team-icon">
                                     <li>
-                                        <a href="https://www.instagram.com/shushanyan_gag/" className="instagram">
+                                        <a href="https://www.instagram.com/harutyunyan5475/" className="instagram" target="_blank">
                                             <img src={ Insta } alt="Instagram" />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://discord.com/" className="discord">
+                                        <a href="https://discord.com/" className="discord" target="_blank">
                                             <img src={ Discord } alt="Discord" />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://github.com/ShushanyanGag" className="github">
+                                        <a href="https://github.com/HN11112" className="github" target="_blank">
                                             <img src={ Github } alt="Github" />
                                         </a>
                                     </li>

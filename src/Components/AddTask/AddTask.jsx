@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import Filter from "../Filter/Filter";
 
 const AddTask = ({
   isOpenAddModal,
@@ -32,6 +33,7 @@ const AddTask = ({
       show={isOpenAddModal}
       onHide={() => onHide("isOpenAddModal")}
       aria-labelledby="contained-modal-title-vcenter"
+      style={{backdropFilter: "blur(10px)"}}
     >
       <Modal.Header closeButton>
         <Modal.Title>{isAddState ? "Add Note" : "Edit Note"}</Modal.Title>
@@ -63,7 +65,7 @@ const AddTask = ({
               value={editTask.date}
               type="date"
               name="date"
-              onChange={inputOnChange}
+              onChange={isAddState ? inputOnChange : editInputChange}
             />
           )}
         </Form>
@@ -75,6 +77,7 @@ const AddTask = ({
         <Button
           variant="primary"
           onClick={() => submit(!isAddState ? editTask : undefined)}
+          style={{backgroundColor: "black", color: "white", border: "none"}}
         >
           {isAddState ? "Add Note" : "Edit Note"}
         </Button>

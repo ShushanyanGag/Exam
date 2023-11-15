@@ -3,13 +3,15 @@ import AddTask from "./AddTask/AddTask";
 import Task from "./Task/Task";
 import DeleteModal from "./deleteModal/deleteModal";
 import Styles from "./styles.module.css";
-import background from "../icons/bg-main-page.png";
+import Filter from "./Filter/Filter";
 import Button from "react-bootstrap/Button";
 import {
   createTaskRequest,
   getTaskRequest,
   deleteTaskRequest,
 } from "../service/requests";
+
+import background from "../icons/bg-laminat.jpeg";
 const ToDo = ({ addNotification }) => {
 
   let [tasks, setTasks] = useState([]);
@@ -50,7 +52,7 @@ const ToDo = ({ addNotification }) => {
         console.log(inputValue[name]);
         obj[name] = inputValue[name];
       });
-
+      
       if (!obj.title && !obj.description) return;
       const newTask = await createTaskRequest(obj, addNotification);
       if (!newTask) return;
@@ -62,6 +64,7 @@ const ToDo = ({ addNotification }) => {
   };
 
   const handleDeleteTask = (_id) => {
+    
     const checkedTasks = new Set();
     checkedTasks.add(_id);
     setCheckedTasks(checkedTasks);
@@ -77,7 +80,7 @@ const ToDo = ({ addNotification }) => {
     setCheckedTasks(new Set(checkedTasks));
   };
   const handleDeleteAllTasks = () => {
-
+    console.log(checkedTasks, "checkedTasks");
     const arr = Array.from(checkedTasks);
     console.log(arr, "arr");
     tasks = arr.reduce(
@@ -130,11 +133,15 @@ const ToDo = ({ addNotification }) => {
   }, []);
 
   return (
-    <div>
-      <div style={{ display: "flex", justifyContent: "center", paddingTop: "100px" }}>
-        <Button style={{backgroundColor: "#212529", color: "white", border: "none"}} onClick={() => handleOpenModal("isOpenAddModal")}>
-          Add Your Note
+    <div style={{boxSizing: "border-box", width: "100vw", height: "100vh", paddingTop: "90px"}}>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "0" }}>
+        <Button onClick={() => handleOpenModal("isOpenAddModal")} style={{backgroundColor: "black", color: "white", borderRadius: "7px", border: "none", paddingLeft: "20px", paddingRight: "20px"}}>
+          Add Note
         </Button>
+      </div>
+      <Filter tasks={tasks} setTasks={setTasks} />
+      <div style={{width: "100vw", display: "flex", justifyContent: "center", paddingTop: "20px"}}>
+        <Button onClick={() => getTaskRequest(setTasks)} style={{backgroundColor: "black", color: "white", border: "none", borderRadius: "7px", width: "100px", }}>Reset</Button>
       </div>
       {isOpenAddModal && (
         <AddTask
@@ -158,8 +165,8 @@ const ToDo = ({ addNotification }) => {
         {tasks.map((item, index) => {
           return (
             <Task
-            tasks={tasks}
-            setTasks={setTasks}
+              tasks={tasks}
+              setTasks={setTasks}
               key={index}
               task={item}
               handleDeleteTask={handleDeleteTask}
@@ -169,15 +176,17 @@ const ToDo = ({ addNotification }) => {
             />
           );
         })}
-        {tasks.length === 0 && <p>There are no notes yet.</p>}
+        {tasks.length === 0 && <p style={{color: "white", fontStyle: "bold", fontSize: "25px", marginTop: "50px"}}>There are no notes!</p>}
       </div>
       {tasks.length === 0 || (
         <div className={Styles.deleteAll}>
           <button
             onClick={() => handleOpenModal("isOpenDeleteModal")}
             disabled={checkedTasks.size === 0}
+            style={{color: "white", backgroundColor: "#660000",}}
+
           >
-            Delete Notes
+            Delete Checked
           </button>
           <button onClick={handleCheckAllTasks} style={{ background: "green" }}>
             {checkedTasks.size === tasks.length ? "Uncheck All" : "Check All"}

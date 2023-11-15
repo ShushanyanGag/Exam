@@ -3,7 +3,7 @@ import Logo from "../../icons/n-logo.png";
 import Insta from "../../icons/instagram.svg";
 import Github from "../../icons/github.svg";
 import Discord from "../../icons/discord.svg";
-import Background from "../../icons/bg_contact.png";
+// import Background from "../../icons/bg_contact.png";
 
 const ContactUs = () => {
     return (

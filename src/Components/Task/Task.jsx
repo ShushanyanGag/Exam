@@ -21,8 +21,10 @@ const Task = (props) => {
           type="checkbox"
           onChange={() => handleOnChange(task._id)}
           checked={checkedTasks.has(task._id)}
-        />
-        <Link to={`/singleTask/${task._id}`} state={task}>
+          style={{marginLeft: "10px"}}
+        /> 
+        <label htmlFor="" style={{fontSize: "13px", color: "white"}}>Check note</label>
+        <Link to={`/singleTask/${task._id}`} state={task} style={{textDecoration: ""}}>
           <p>Title: {task.title}</p>
         </Link>
         <p>Description: {task.description}</p>

@@ -8,6 +8,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import FirstPage from "./Components/FirstPage/FirstPage";
 
 export const ContextProvider = createContext();
 
@@ -33,22 +34,15 @@ const App = () => {
       <div style={containerStyles}>
         <ContextProvider.Provider value={contextValue}>
           <Routes>
+            <Route path="/" Component={ FirstPage }/>
             <Route
               path="/"
               element={<ToDo addNotification={addNotification} />}
             />
             <Route path="/singleTask/:id" element={<SingleTask />} />
             <Route onClick={() => navigate("/", { state: { a: 5 } })}/>
-            {/* <Route
-              path="/contact"
-              element={
-                <button onClick={() => navigate("/", { state: { a: 5 } })}>
-                  Contact us
-                </button>
-              }
-            /> */}
-            <Route path="/" Component={ ToDo }/>
-            <Route path="/" Component={ ToDo }/>
+
+            <Route path="/notes" Component={ ToDo }/> 
             <Route path="/login" Component={ Login }/>
             <Route path="/about" Component={ AboutUs }/>
             <Route path="/contact" Component={ ContactUs }/>

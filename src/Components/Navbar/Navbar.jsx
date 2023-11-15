@@ -16,7 +16,7 @@ const NavbarComponent = () => {
         <Navbar.Toggle />
         <Navbar.Collapse className="right_aligned">
           <Nav className="space">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/notes">Notes</Nav.Link>
             <Nav.Link href="about">About Us</Nav.Link>
             <Nav.Link href="contact">Contact</Nav.Link>
             <Nav.Link href="login">LogIn</Nav.Link>
