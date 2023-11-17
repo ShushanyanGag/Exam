@@ -100,7 +100,7 @@ body {
 }
 
 .team-icon img {
-    width: 30px;
+    width: 33px;
     height: auto;
     filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(349deg) brightness(107%) contrast(101%);
 }
@@ -108,8 +108,6 @@ body {
 .instagram img:hover {
     filter: brightness(0) saturate(100%) invert(26%) sepia(50%) saturate(4358%) hue-rotate(328deg) brightness(95%) contrast(112%);
     transition: 0.2s;
-    width: 33px;
-    height: auto;
 }
 
 .discord img {
@@ -120,15 +118,11 @@ body {
 .discord img:hover {
     filter: brightness(0) saturate(100%) invert(9%) sepia(96%) saturate(4702%) hue-rotate(279deg) brightness(97%) contrast(111%);
     transition: 0.2s;
-    width: 38px;
-    height: auto;
 }
 
 .github img:hover {
     filter: brightness(0) saturate(100%) invert(19%) sepia(36%) saturate(2138%) hue-rotate(205deg) brightness(91%) contrast(100%);
     transition: 0.2s;
-    width: 33px;
-    height: auto;
 }
 .members {
     width: 100vw;

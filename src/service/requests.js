@@ -16,7 +16,7 @@ export const createTaskRequest = async (task, addNotification) => {
     if (response.ok) {
       addNotification("Your task was successfuly added!", "success");
     }
-    // throw "Something qent wrong!";
+    // throw "Something went wrong!";
     return newTask;
   } catch (error) {
     addNotification(error, "error");
@@ -30,7 +30,7 @@ export const getTaskRequest = async (setTasks) => {
   console.log(tasks, "tasks");
 };
 
-export const deleteTaskRequest = async (array) => {
+export const deleteTaskRequest = async (array,addNotification) => {
   console.log(array, "array");
   const response = await fetch(`${API_HOST}/task`, {
     method: "PATCH",
@@ -40,6 +40,7 @@ export const deleteTaskRequest = async (array) => {
     body: JSON.stringify({ tasks: array }),
   });
   console.log(response);
+  addNotification("Task was succesfully deleted","error")
 };
 
 export const sendContactForm = async (formData) => {

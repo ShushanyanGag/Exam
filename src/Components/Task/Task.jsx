@@ -32,6 +32,7 @@ const Task = (props) => {
         
         <Form style={{position: "absolute", bottom: "0", left: "40px"}}>
           <Form.Check // prettier-ignore
+            className={Styles.form}
             style={{color: "white", marginTop: "", marginLeft: "10px", display: "flex", alignItems: "cemter", justifyContent: "center", padding: "0"}}
             checked={task.status === "done"}
             type="switch"

@@ -10,7 +10,6 @@ import {
   getTaskRequest,
   deleteTaskRequest,
 } from "../service/requests";
-import { getDropdownMenuPlacement } from "react-bootstrap/esm/DropdownMenu";
 
 const ToDo = ({ addNotification }) => {
   let [tasks, setTasks] = useState([]);
@@ -86,7 +85,7 @@ const ToDo = ({ addNotification }) => {
       (acc, checkedTask) => acc.filter((task) => task._id !== checkedTask),
       tasks
     );
-    deleteTaskRequest(arr);
+    deleteTaskRequest(arr,addNotification);
     setTasks(tasks);
     setCheckedTasks(new Set());
     setIsOpenDeleteModal(false);
