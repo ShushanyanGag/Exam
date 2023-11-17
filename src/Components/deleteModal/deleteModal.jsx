@@ -13,7 +13,7 @@ function Deletemodal({
     newTask = tasks.find((task) => checkedTasks.has(task._id));
   }
   return (
-    <Modal show={isOpenDeleteModal} onHide={() => onHide("isOpenDeleteModal")}>
+    <Modal show={isOpenDeleteModal} onHide={() => onHide("isOpenDeleteModal")} style={{backdropFilter: "blur(6px)"}}>
       <Modal.Header closeButton>
         <Modal.Title>Delete notes</Modal.Title>
       </Modal.Header>

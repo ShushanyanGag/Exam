@@ -11,7 +11,6 @@ import {
   deleteTaskRequest,
 } from "../service/requests";
 
-import background from "../icons/bg-laminat.jpeg";
 const ToDo = ({ addNotification }) => {
   let [tasks, setTasks] = useState([]);
   let [inputValue, setInputValue] = useState({});
@@ -134,7 +133,7 @@ const ToDo = ({ addNotification }) => {
   return (
     <div style={{boxSizing: "border-box", width: "100vw", height: "100vh", paddingTop: "90px"}}>
       <div style={{ display: "flex", justifyContent: "center", marginTop: "0" }}>
-        <Button onClick={() => handleOpenModal("isOpenAddModal")} style={{backgroundColor: "black", color: "white", borderRadius: "7px", border: "none", paddingLeft: "20px", paddingRight: "20px"}}>
+        <Button onClick={() => handleOpenModal("isOpenAddModal")} className={Styles.add_note} style={{backgroundColor: "black", color: "white", borderRadius: "7px", border: "none", paddingLeft: "20px", paddingRight: "20px"}}>
           Add Note
         </Button>
       </div>
@@ -175,14 +174,14 @@ const ToDo = ({ addNotification }) => {
             />
           );
         })}
-        {tasks.length === 0 && <p style={{color: "white", fontStyle: "bold", fontSize: "25px", marginTop: "50px"}}>There are no notes!</p>}
+        {tasks.length === 0 && <p style={{color: "white", fontStyle: "bold", fontSize: "30px", marginTop: "50px"}}>There are no notes!</p>}
       </div>
       {tasks.length === 0 || (
         <div className={Styles.deleteAll}>
           <button
             onClick={() => handleOpenModal("isOpenDeleteModal")}
             disabled={checkedTasks.size === 0}
-            style={{color: "white", backgroundColor: "#660000",}}
+            style={{color: "white", backgroundColor: "#b50202",}}
 
           >
             Delete Checked

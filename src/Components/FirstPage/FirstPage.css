@@ -4,6 +4,7 @@
     height: 100vh;
     background-image: url("../../icons/bg-todo.jpg");
     background-size: cover;
+    background-position: 15%;
     background-repeat: no-repeat;
     padding-top: 170px;
 }
@@ -13,6 +14,7 @@
     backdrop-filter: blur(10px);
     text-align: center;
     border-radius: 15px;
+    border: 1px dashed white;
     width: 65%;
     padding: 20px;
     margin: auto;
@@ -30,7 +32,7 @@
     margin-top: 20px;
 }
 
-.heading button {
+.heading a button {
     height: 50px;
     width: 20vw;
     margin-top: 60px;
@@ -43,11 +45,18 @@
 
 }
 
-.heading button a {
+.heading a {
     width: 100%;
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-size: 18px;
+}
+
+.heading a button:hover {
+    background-color: #212529;
+    transition: 0.4s;
+    color: white;
+    border: 1.5px dashed white;
 }
 
 .down_desription {

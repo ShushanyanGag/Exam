@@ -15,20 +15,27 @@ body {
     width: 100%;
 }
 .section-white {
-    background-image: linear-gradient(to right, #9c7945, #fadf90, #9c7945);
-    width: 100%;
-    /* height: auto; */
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../icons/bg-about2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    /* background-attachment: fixed; */
     padding: 0 0 0 0;
 }
 
 .team-item {
-    background-color: #f4f5f6;
+    /* background-color: transparent; */
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
     text-align: center;
     margin: 10px 0;
     padding: 40px 20px 40px 20px;
     border-radius: 8px;
     width: 35%;
-    border: 2px dashed #212529;
+    border: 2px dashed #ffffff;
     min-width: 250px;
     max-height: 415px;
 }
@@ -42,7 +49,7 @@ body {
 
 .team-item h3 {
     margin: 20px 0 1px 0 !important;
-    color: #454545;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
@@ -51,6 +58,8 @@ body {
 .section-title {
     margin-top: 35px;
     font-weight: 600;
+    color: #ffffff;
+    font-size: 50px;
 }
 
 .section-subtitle {
@@ -64,8 +73,8 @@ body {
 }
 
 .team-info p {
-    color: #9c7945;
-    font-style: italic;
+    color: #ffffff;
+    /* font-style: italic; */
     font-weight: 500;
 }
 
@@ -73,7 +82,7 @@ body {
     width: 140px;
     height: 140px;
     padding: 6px;
-    background-color: #DCAD97;
+    background-color: #212529;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -84,6 +93,7 @@ body {
     flex-wrap: wrap;
     list-style-type: none;
     justify-content: center;
+    gap: 10px;
     margin-top: 25px;
     width: 100%;
     padding: 0;
@@ -92,6 +102,14 @@ body {
 .team-icon img {
     width: 30px;
     height: auto;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(349deg) brightness(107%) contrast(101%);
+}
+
+.instagram img:hover {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(50%) saturate(4358%) hue-rotate(328deg) brightness(95%) contrast(112%);
+    transition: 0.2s;
+    width: 33px;
+    height: auto;
 }
 
 .discord img {
@@ -99,6 +117,19 @@ body {
     height: auto;
 }
 
+.discord img:hover {
+    filter: brightness(0) saturate(100%) invert(9%) sepia(96%) saturate(4702%) hue-rotate(279deg) brightness(97%) contrast(111%);
+    transition: 0.2s;
+    width: 38px;
+    height: auto;
+}
+
+.github img:hover {
+    filter: brightness(0) saturate(100%) invert(19%) sepia(36%) saturate(2138%) hue-rotate(205deg) brightness(91%) contrast(100%);
+    transition: 0.2s;
+    width: 33px;
+    height: auto;
+}
 .members {
     width: 100vw;
     display: flex;
@@ -108,5 +139,5 @@ body {
     margin-bottom: 130px;
     padding-right: 0;
     padding-left: 0;
-    background-image: linear-gradient(to right, #9c7945, #fadf90, #9c7945);
+    background-color: transparent;
 }

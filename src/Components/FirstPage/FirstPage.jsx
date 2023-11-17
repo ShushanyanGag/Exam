@@ -18,11 +18,11 @@ const FirstPage = () => {
                         YO'URE NOTES ARE OUR RESPONSIBILITY.
                     </b>
                 </h4>
-                <button>
-                    <a href="/notes">
+                <a href="/notes">
+                    <button>
                         Write your first note here!
-                    </a>
-                </button>
+                    </button>
+                </a>
             </div>
             <div className="down_desription">
                 <a href="https://www.instagram.com/shushanyan_gag/" target="_blank">

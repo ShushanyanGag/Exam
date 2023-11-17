@@ -9,8 +9,8 @@ const Login = () => {
             </div>
             <div className="right">
                 <p style={{marginBottom: "45px" }}>Interactive Brand</p>
-                <h3>Login</h3>
-                <p style={{fontSize: "18px", marginBottom: "40px"}}>Welcome Back! Please enter your details.</p>
+                <h3 style={{color: "white"}}>Login</h3>
+                <p style={{fontSize: "18px", marginBottom: "40px", color: "white"}}>Welcome Back! Please enter your details.</p>
                 <form action="">
                     <input type="email" placeholder="Email" className="input-email" required/>
                     <br />
@@ -19,7 +19,7 @@ const Login = () => {
                     <div className="checkbox-text-forgot">
                         <div className="checkbox-text">
                             <input type="checkbox" name="" id="" />
-                            <label htmlFor="">Remember me for 30 days</label>
+                            <label htmlFor="" style={{color: "whitesmoke"}}>Remember me for 30 days</label>
                         </div>
                         <a href="#">Forgot Password?</a>
                     </div>
