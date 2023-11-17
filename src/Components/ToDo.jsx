@@ -10,6 +10,7 @@ import {
   getTaskRequest,
   deleteTaskRequest,
 } from "../service/requests";
+import { getDropdownMenuPlacement } from "react-bootstrap/esm/DropdownMenu";
 
 const ToDo = ({ addNotification }) => {
   let [tasks, setTasks] = useState([]);
@@ -181,12 +182,11 @@ const ToDo = ({ addNotification }) => {
           <button
             onClick={() => handleOpenModal("isOpenDeleteModal")}
             disabled={checkedTasks.size === 0}
-            style={{color: "white", backgroundColor: "#b50202",}}
-
+            className={Styles.buttonRed}
           >
             Delete Checked
           </button>
-          <button onClick={handleCheckAllTasks} style={{ background: "green" }}>
+          <button onClick={handleCheckAllTasks} style={{}} className={Styles.buttonGreen}>
             {checkedTasks.size === tasks.length ? "Uncheck All" : "Check All"}
           </button>
         </div>

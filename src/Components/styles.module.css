@@ -30,9 +30,20 @@ body {
 .deleteAll button {
   width: 180px;
   height: 40px;
-  background-color: red;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
   margin-right: 15px;
+}
+
+.buttonGreen:hover {
+  background-color: #0d5908;
+  color: white;
+  transition: 0.3s;
+}
+
+.buttonRed:hover {
+  background-color: #b50e0e;
+  transition: 0.3s;
 }

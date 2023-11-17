@@ -25,7 +25,7 @@ const Task = (props) => {
             style={{marginLeft: "10px", width: "15px", height: "15px"}}
           /> 
           <label htmlFor="" style={{fontSize: "15px", color: "white", marginLeft: "5px"}}>Check note</label>
-          <p style={{marginTop: "20px"}}>Title: {task.title}</p>
+          <p style={{marginTop: "10px", marginBottom: "5px"}}>Title: {task.title}</p>
           <p style={{}}>Description: {task.description}</p>
           <p>Date: {task.created_at.split("T", 1)[0]}</p>
         </div>
