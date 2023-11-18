@@ -120,6 +120,7 @@ const ToDo = ({ addNotification }) => {
   const handleEditTask = (task) => {
     setEditTask(task);
     setIsOpenAddModal(true);
+    
   };
 
   const resetEditTask = () => {

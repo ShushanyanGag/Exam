@@ -35,6 +35,7 @@
   width: 28px;
   height: auto;
   margin: 10px;
+  filter: brightness(0) saturate(100%);
 }
 
 .delete:hover {
